@@ -12,3 +12,25 @@ function listarOsItensDocardapio(cardapio) {
 }
 
 listarOsItensDocardapio(cardapio);
+
+const pedidoCliente = {
+  hamburguer: 2,
+  batataFrita: 3,
+  refrigerante: 3,
+  milkshake: 6,
+};
+
+function calcularTotalConta(cardapio, pedidoCliente) {
+  let totalConta = 0;
+
+  for (const item in pedidoCliente) {
+    if (item in cardapio) {
+      totalConta += cardapio[item] * pedidoCliente[item];
+    }
+  }
+
+  return totalConta;
+}
+
+const totalConta = calcularTotalConta(cardapio, pedidoCliente);
+console.log(`Total da conta é de: R${totalConta}`);
